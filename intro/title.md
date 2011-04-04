@@ -42,15 +42,6 @@ Valtech AB
 
 # Q: How many think I am asking too many questions?
 
-!SLIDE bullets
-
-# What is BDD?
-
-> "BDD is TDD done right"
-
-> "TDD means 'write the test first'. BDD takes this idea to a more general
-> level: 'write the client first' (the outside)"   
-> - Aslak Hellesøy
 
 !SLIDE bullets
 
@@ -60,3 +51,17 @@ Valtech AB
 * TestDox, Joe Walnes
 * Dan North
 * Dave Astels, Aslak Hellesøy, David Chelimsky
+
+!SLIDE commandline
+
+    $ rake
+
+    Finished in 27.79 seconds
+    285 examples, 0 failures
+
+    152 scenarios (152 passed)
+    1363 steps (1363 passed)
+    4m4.505s
+
+    Finished in 8.06 seconds
+    77 examples, 0 failures

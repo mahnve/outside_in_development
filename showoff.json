@@ -1,6 +1,7 @@
 { "name": "Cucumber", 
   "sections": [ 
     { "section":"intro"},
+    { "section":"tdd_bdd"},
     { "section":"thanks"}
   ]
 }
