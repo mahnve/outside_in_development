@@ -6,10 +6,14 @@ gem 'inherited_resources'
 gem 'formtastic'
 gem 'haml'
 
-group :test do
+group :test, :development do
   gem 'rspec-rails'
+end
+
+group :test do
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 

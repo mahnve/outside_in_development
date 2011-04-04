@@ -284,4 +284,15 @@
     And I press "Create Blog post"
     Then I should see "My great Idea"
 
+!SLIDE commandline
 
+    $ rake
+
+    ...
+    Missing template blog_posts/show
+
+!SLIDE code
+
+    @@@ Haml
+
+    = @blog_post.title
