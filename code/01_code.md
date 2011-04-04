@@ -1,6 +1,6 @@
 !SLIDE commandline
 
-    $ rails new blog
+    $ rails new blog -T
 
       create  
       create  README
@@ -141,7 +141,7 @@
         when /the home\s?page/
           '/'
         when /the new blog post page/
-          '/blogpost/new'
+          '/blog_posts/new'
 
 !SLIDE commandline
 
@@ -173,8 +173,59 @@
     create        test/unit/helpers/blog_posts_helper_test.rb
      route  resources :blog_posts
 
+!SLIDE commandline
 
+    $ rake
 
+    (in /home/mahnve/src/presentations/cucumber/src/blog)
+    You have 1 pending migrations:
+      20110404155134 CreateBlogPosts
 
+!SLIDE code
 
+    @@@ Ruby
+
+    class CreateBlogPosts < ActiveRecord::Migration
+      def self.up
+        create_table :blog_posts do |t|
+          t.string :title
+          t.string :body
+
+          t.timestamps
+        end
+      end
+
+      def self.down
+        drop_table :blog_posts
+      end
+    end
+
+!SLIDE commandline
+
+    $ rake db:migrate
+
+    (in /home/mahnve/src/presentations/cucumber/src/blog)
+    ==  CreateBlogPosts: migrating ================================================
+    -- create_table(:blog_posts)
+      -> 0.0010s
+    ==  CreateBlogPosts: migrated (0.0010s) =======================================
+
+!SLIDE commandline
+
+    $ rake
+
+    Given I am on the new blog post page # features/step_definitions/web_steps.rb:44
+    The action 'new' could not be found for BlogPostsController (AbstractController::ActionNotFound)
+
+!SLIDE code
+
+    @@@ Ruby
+
+    gem 'inherited_resources'
+
+!SLIDE code
     
+    @@@ Ruby
+
+    class BlogPostsController < InheritedResources::Base
+    end
