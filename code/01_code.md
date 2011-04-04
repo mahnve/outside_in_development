@@ -229,3 +229,59 @@
 
     class BlogPostsController < InheritedResources::Base
     end
+
+!SLIDE commandline
+
+    $ rake
+
+    Missing template blog_posts/new with ...
+
+!SLIDE code
+
+    @@@ Ruby
+
+    gem 'formtastic'
+    gem 'haml'
+
+!SLIDE code
+
+    @@@ Haml
+
+    - semantic_form_for @blog_post do |form|
+      = form.inputs
+      = form.buttons
+
+!SLIDE commandline
+
+    $ rake 
+
+    Given I am on the new blog post page # features/step_definitions/web_steps.rb:44
+    When I write a blog post             # features/step_definitions/blogpost_steps.rb:1
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/blogpost_steps.rb:2:in `/^I write a blog post$/'
+
+!SLIDE bullets
+
+# Oops
+
+* Steps where not really optimal
+
+!SLIDE code
+
+    @@@ Ruby 
+
+    When /^I write a blog post with title "([^"]*)" and the body "([^"]*)"$/ do |title, body|
+      fill_in 'Title', :with => title
+      fill_in 'Body', :with => body
+    end
+
+!SLIDE code
+
+    @@@ Cucumber
+
+    Given I am on the new blog post page
+    When I write a blog post with title "My great Idea" and body "Body body body"
+    And I press "Create Blog post"
+    Then I should see "My great Idea"
+
+

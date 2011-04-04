@@ -57,8 +57,13 @@ GEM
       abstract (>= 1.0.0)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    formtastic (1.1.0)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
     gherkin (2.3.5)
       json (>= 1.4.6)
+    haml (3.0.23)
     has_scope (0.5.0)
     i18n (0.4.2)
     inherited_resources (1.1.2)
@@ -129,6 +134,8 @@ DEPENDENCIES
   capybara
   cucumber-rails
   database_cleaner
+  formtastic
+  haml
   inherited_resources
   rails (= 3.0.0)
   rspec-rails
