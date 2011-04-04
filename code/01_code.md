@@ -25,6 +25,7 @@
     group :test do
       gem 'rspec-rails'
       gem 'cucumber-rails'
+      gem 'capybara'
     end
 
 !SLIDE commandline
@@ -70,3 +71,110 @@
       gsub  config/database.yml
      force  config/database.yml
 
+!SLIDE commandline
+
+    $ rails generate rspec:install                                                     ──master(Mon,Apr04)─┘
+
+    create  .rspec
+    create  spec
+    create  spec/spec_helper.rb
+
+!SLIDE code
+
+    @@@ Cucumber
+
+    Feature: User writes blog post
+
+      In order for other people to read brilliant thoughts
+      A user can post a blog post
+
+      Scenario: 
+
+        Given I am on the new blog post page
+        When I write a blog post
+        And it has the title "My great Idea"
+        And it has the body "Body body body"
+        And I press "Save"
+        Then I should see "My great Idea"
+
+!SLIDE commandline
+
+    $ rake
+
+    1 scenario (1 failed)
+    6 steps (1 failed, 2 skipped, 3 undefined)
+    0m1.103s
+
+    You can implement step definitions for undefined steps with these snippets:
+
+!SLIDE code
+
+    @@@ Ruby
+
+    When /^I write a blog post$/ do
+      pending # express the regexp above with the code you wish you had
+    end
+
+    When /^it has the title "([^"]*)"$/ do |arg1|
+      pending # express the regexp above with the code you wish you had
+    end
+
+    When /^it has the body "([^"]*)"$/ do |arg1|
+      pending # express the regexp above with the code you wish you had
+    end
+
+!SLIDE command
+
+    $ rake
+
+    Given I am on the new blog post page # features/step_definitions/web_steps.rb:44
+    Can't find mapping from "the new blog post page" to a path.
+    Now, go and add a mapping in /home/mahnve/src/presentations/cucumber/src/blog/features/support/paths.rb (RuntimeError)
+
+!SLIDE code
+
+    @@@ Ruby
+
+    module NavigationHelpers
+      def path_to(page_name)
+        case page_name
+        when /the home\s?page/
+          '/'
+        when /the new blog post page/
+          '/blogpost/new'
+
+!SLIDE commandline
+
+    $ rake
+
+    Scenario:  # features/user_writes_blogpost.feature:6
+      Given I am on the new blog post page # features/step_definitions/web_steps.rb:44
+        No route matches "/blogpost/new" (ActionController::RoutingError)
+
+!SLIDE commandline
+
+    $ rails generate resource BlogPost title:string body:string
+
+    invoke  active_record
+    create    db/migrate/20110404155134_create_blog_posts.rb
+    create    app/models/blog_post.rb
+    invoke    test_unit
+    create      test/unit/blog_post_test.rb
+    create      test/fixtures/blog_posts.yml
+    invoke  controller
+    create    app/controllers/blog_posts_controller.rb
+    invoke    erb
+    create      app/views/blog_posts
+    invoke    test_unit
+    create      test/functional/blog_posts_controller_test.rb
+    invoke    helper
+    create      app/helpers/blog_posts_helper.rb
+    invoke      test_unit
+    create        test/unit/helpers/blog_posts_helper_test.rb
+     route  resources :blog_posts
+
+
+
+
+
+    
