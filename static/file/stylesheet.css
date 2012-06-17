@@ -1,7 +1,7 @@
 @font-face { font-family: Mentone; src('mentone-semibold.ttf'); }
 
 .content {
-  font-family: Mentone;
+  font-family: Mentone, Arial, Helvetica, Sans-Serif
 }
 
 
