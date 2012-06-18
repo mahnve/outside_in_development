@@ -46,58 +46,31 @@
     </section>
 
     <section>
-      <h1>Q: How many are using Cucumber</h1>
+      <h2 class='singletext'>Q: How many are doing TDD/BDD?</h2>
     </section>
 
     <section>
-      <h1>Q: How many have heard of Cucumber</h1>
+      <h2 class='singletext'>Q: How many are using Cucumber</h2>
     </section>
 
     <section>
-      <h1>Q: How many are using RSpec</h1>
+      <h2 class='singletext'>Q: How many have heard of Cucumber</h2>
     </section>
 
     <section>
-      <h1>Q: How many have heard of RSpec</h1>
+      <h2 class='singletext'>Q: How many are using RSpec</h2>
     </section>
 
     <section>
-      <h1>Q: How many are doing TDD/BDD?</h1>
+      <h2 class='singletext'>Q: How many have heard of RSpec</h2>
     </section>
 
     <section>
-      <h1>Q: How many think I am asking too many questions?</h1>
+      <h2 class='singletext'>Q: How many think I am asking too many questions?</h2>
     </section>
 
     <section>
-      <h1>My BDD history</h1>
-
-      <ul>
-        <li>Java and Ruby developer</li>
-        <li>TestDox, Joe Walnes</li>
-        <li>Dan North</li>
-        <li>Dave Astels, Aslak Helles&#xF8;y, David Chelimsky</li>
-      </ul>
-    </section>
-
-    <section>
-      <pre>
-      <code class="bash">$ rake</code>
-      <code class="bash">
-        Finished in 27.79 seconds
-        285 examples, 0 failures
-
-        152 scenarios (152 passed)
-        1363 steps (1363 passed)
-        4m4.505s
-
-        Finished in 8.06 seconds
-        77 examples, 0 failures
-      </code>
-      </pre>
-    </section>
-    <section>
-      <h1>Why automatic testing?</h1>
+      <h2>Why automatic testing?</h2>
 
       <ul>
         <li>Make sure it works now</li>
@@ -106,7 +79,7 @@
 
     </section>
     <section>
-      <h1>Why TDD?</h1>
+      <h2>Why TDD?</h2>
 
       <ul>
         <li>Make sure it works now</li>
@@ -116,7 +89,7 @@
 
     </section>
     <section>
-      <h1>Method Testing</h1>
+      <h2>Method Testing</h2>
 
       <pre>
         <code class="ruby">
@@ -139,7 +112,7 @@ end
       </pre>
     </section>
     <section>
-      <h1>The Context Problem</h1>
+      <h2>The Context Problem</h2>
 
       <pre class="sh_ruby">
       <code>
@@ -159,8 +132,95 @@ end
       </code>
       </pre>
     </section>
+
     <section>
-      <h1>Why BDD?</h1>
+      <h2>My BDD history</h2>
+
+      <ul>
+        <li>Java and Ruby developer</li>
+        <li>TestDox, Joe Walnes</li>
+        <li>Dan North</li>
+        <li>Dave Astels, Aslak Helles&#xF8;y, David Chelimsky</li>
+      </ul>
+    </section>
+
+    <section> 
+      <h2 id="testdox">TestDox Code</h2>
+
+      <pre>
+        <code class='java'>
+public class AdditionTest {
+  
+  public void testOnePlusOneShouldBeTwo() {
+    assertEqual(2, 1+1)
+  } 
+
+  public void testTwoPlusThreeShouldBeFive() {
+    assertEqual(5, 2+3)
+  } 
+}
+             </code>
+      </pre>
+    </section>
+
+
+    <section>
+      <h2>TestDox Output</h2>
+    
+      <pre>
+      <code>
+Addition:
+
+- one plus one should be two
+- two plus three should be five
+
+      </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2 class='singletext'>Coding By Example</h2>
+
+      <h2>Write an example explaining how we want the code to behave</h2>
+    </section>
+
+    <section>
+      <h2>RSpec</h2>
+      <pre>
+
+      <code class='ruby'>
+describe Addition do
+  
+  it 'should sum 1 and 1 to 2' do
+    
+    (1 + 1).should == 2
+
+  end
+
+end
+      </code>
+      </pre>
+    </section>
+
+    <section> 
+      <h2>Cucumber</h2>
+      <pre>
+      <code class='gherkin'>
+Feature: Addition
+
+  In order to get correct sums
+  As a user I can add numbers
+
+  Scenario: 1+1
+    Given I want to add numbers
+    When I add 1+1
+    Then I the answer should be 2
+      </code>
+      </pre>
+    </section>
+
+    <section>
+      <h2>Why Outside In BDD?</h2>
 
       <ul>
         <li>Make sure it works now</li>
@@ -172,7 +232,7 @@ end
       </ul>
     </section>
     <section>
-      <h1>What is BDD?</h1>
+      <h2>What is BDD?</h2>
 
       <blockquote>
         <p>"BDD is TDD done right"</p>
@@ -181,15 +241,41 @@ end
         level: 'write the client first' (the outside)" <br/>
         - Aslak Helles&#xF8;y</p></blockquote>
     </section>
-    <section>
-      <h1>The BDD Flow</h1>
 
-      <p><img src="./file/tdd_bdd/bdd_flow.svg" alt="BDD Flow"/></p>
+    <section>
+      <h2>Outside In Design</h2>
+
+      <p><img src="/images/outside_design.png" alt="BDD Flow"/></p>
+    </section>
+
+    <section>
+      <h2>The Outside In BDD Flow</h2>
+
+      <p><img src="/images/outsidein.png" alt="BDD Flow"/></p>
+    </section>
+
+    <section>
+      <h2 class='singletext'>Hey! Where is the code?</h2>
     </section>
     <section>
-      <h1>Thank You!</h1>
+      <h2 class='singletext'>Demo</h2>
+    </section>
+    <section>
+      <h2>Thank You!</h2>
+      <p>
+      <a href="http://marcusahnve.org">http://marcusahnve.org</a><br/>
+      <a href="mailto:marcus.ahnve@valtech.se">marcus.ahnve@valtech.se</a><br/>
+      <a href="mailto:marcus@ahnve.com">marcus@ahnve.com</a><br/>
+      <a href="http://www.twitter.com/mahnve">@mahnve</a><br/>
+      <a href="http://marcusahnve.org/agile_architecture_presentation">Slides</a><br/>
+      </p>
+      <p>
+      <img src="images/valtech_logo.png" alt="Valtech"/>
+      </p>
+      <p>
+      <a href="http://www.valtech.se">http://www.valtech.se</a>
 
-      <p><img src="./file/thanks/valtech_logo.jpg" alt="Valtech"/></p>
+      <p><img src="/images/valtech_logo.png" alt="Valtech"/></p>
     </section>
 
   </div>
