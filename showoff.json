@@ -1,9 +1,0 @@
-{ "name": "Cucumber", 
-  "sections": [ 
-    { "section":"intro"},
-    { "section":"tdd_bdd"},
-    { "section":"code"},
-    { "section":"java"},
-    { "section":"thanks"}
-  ]
-}

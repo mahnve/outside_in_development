@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Outside In Development</title>
+
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/reset.css" type="text/css"/>
+<link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="/styles/solarized_dark.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="reveal">
+  <div class="slides">
+
+    <section class='heading'>
+      <h1>BDD with Cucumber and RSpec</h1>
+      <h2>Marcus Ahnve</h2>
+
+      <p>
+      <a href="http://marcusahnve.org">http://marcusahnve.org</a><br/>
+      <a href="mailto:marcus.ahnve@valtech.se">marcus.ahnve@valtech.se</a><br/>
+      <a href="mailto:marcus@ahnve.com">marcus@ahnve.com</a><br/>
+      <a href="http://www.twitter.com/mahnve">@mahnve</a><br/>
+      <img class='logo' src="images/valtech_logo.png" alt="Valtech"/>
+      </p>
+
+      <p>
+        <a href="http://www.valtech.se">http://www.valtech.se</a>
+      </p>
+    </section>
+
+    <section>
+
+      <h2>About me</h2>
+
+      <ul>
+        <li>Playing Agile Coach</li>
+        <li>Developed software professionally since 1996</li>
+        <li>Rubyist</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Q: How many are using Cucumber</h1>
+    </section>
+
+    <section>
+      <h1>Q: How many have heard of Cucumber</h1>
+    </section>
+
+    <section>
+      <h1>Q: How many are using RSpec</h1>
+    </section>
+
+    <section>
+      <h1>Q: How many have heard of RSpec</h1>
+    </section>
+
+    <section>
+      <h1>Q: How many are doing TDD/BDD?</h1>
+    </section>
+
+    <section>
+      <h1>Q: How many think I am asking too many questions?</h1>
+    </section>
+
+    <section>
+      <h1>My BDD history</h1>
+
+      <ul>
+        <li>Java and Ruby developer</li>
+        <li>TestDox, Joe Walnes</li>
+        <li>Dan North</li>
+        <li>Dave Astels, Aslak Helles&#xF8;y, David Chelimsky</li>
+      </ul>
+    </section>
+
+    <section>
+      <pre>
+      <code class="bash">$ rake</code>
+      <code class="bash">
+        Finished in 27.79 seconds
+        285 examples, 0 failures
+
+        152 scenarios (152 passed)
+        1363 steps (1363 passed)
+        4m4.505s
+
+        Finished in 8.06 seconds
+        77 examples, 0 failures
+      </code>
+      </pre>
+    </section>
+    <section>
+      <h1>Why automatic testing?</h1>
+
+      <ul>
+        <li>Make sure it works now</li>
+        <li>Make sure it works whenever</li>
+      </ul>
+
+    </section>
+    <section>
+      <h1>Why TDD?</h1>
+
+      <ul>
+        <li>Make sure it works now</li>
+        <li>Make sure it works whenever</li>
+        <li>Know when you're done</li>
+      </ul>
+
+    </section>
+    <section>
+      <h1>Method Testing</h1>
+
+      <pre>
+        <code class="ruby">
+class Klazz
+  def method
+    do_something
+  end
+end
+
+class KlazzTest
+  def setup
+    @klazz = Klazz.new
+  end
+  def test_method
+    result = @klazz.do_something
+    assert_equal("expected", result)
+  end
+end
+        </code>
+      </pre>
+    </section>
+    <section>
+      <h1>The Context Problem</h1>
+
+      <pre class="sh_ruby">
+      <code>
+class KlazzTest
+  def setup
+    @klazz = Klazz.new
+  end
+  def test_method
+    result = @klazz.do_something
+    assert_equal(:expected, result)
+  end
+  def test_another_context
+    klazz = Klazz.new(:constructor_args)
+    assert_equal(:expected_2, klazz.do_something)
+  end
+end
+      </code>
+      </pre>
+    </section>
+    <section>
+      <h1>Why BDD?</h1>
+
+      <ul>
+        <li>Make sure it works now</li>
+        <li>Make sure it works whenever</li>
+        <li>Know when you're done</li>
+        <li>Build just what's needed</li>
+        <li>Design from functionality</li>
+        <li>Documentation - why</li>
+      </ul>
+    </section>
+    <section>
+      <h1>What is BDD?</h1>
+
+      <blockquote>
+        <p>"BDD is TDD done right"</p>
+
+        <p>"TDD means 'write the test first'. BDD takes this idea to a more general
+        level: 'write the client first' (the outside)" <br/>
+        - Aslak Helles&#xF8;y</p></blockquote>
+    </section>
+    <section>
+      <h1>The BDD Flow</h1>
+
+      <p><img src="./file/tdd_bdd/bdd_flow.svg" alt="BDD Flow"/></p>
+    </section>
+    <section>
+      <h1>Thank You!</h1>
+
+      <p><img src="./file/thanks/valtech_logo.jpg" alt="Valtech"/></p>
+    </section>
+
+  </div>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+var currentSection = $('section').first().fadeIn();
+$('body').keydown(function(event) { 
+  if(event.which == 39) {
+    currentSection.hide();
+    nextSection = ((currentSection.next('section').length > 0) ? currentSection.next('section') : currentSection);
+    nextSection.fadeIn();
+    currentSection = nextSection;
+    return false;
+  } else if (event.which == 37) {
+    currentSection.hide();
+    prevSection = (currentSection.prev('section').length > 0 ? currentSection.prev('section') : currentSection);
+    prevSection.fadeIn();
+    currentSection = prevSection;
+    return false;
+  }
+});
+</script>
+</body>
+</html>
