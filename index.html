@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/css/reset.css" type="text/css"/>
 <link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen" charset="utf-8">
 <link rel="stylesheet" href="/styles/solarized_dark.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/js/jquery-1.7.2.min.js"></script>
 
 </head>
 
@@ -18,7 +18,7 @@
   <div class="slides">
 
     <section class='heading'>
-      <h1>BDD with Cucumber and RSpec</h1>
+      <h1>Outside In Development</h1>
       <h2>Marcus Ahnve</h2>
 
       <p>
@@ -219,6 +219,43 @@ Feature: Addition
       </pre>
     </section>
 
+    <section> 
+      <h2>Don't Focus On GUI Details</h2>
+
+      <pre>
+      <code class='gherkin'>
+Feature: Register Sale
+
+  Given I an editor
+  When I am at "/"
+  And I click "Admin"
+  And I click "New Post"
+  And I enter "New Post" in "Title" field
+  And I enter "Blah blah blah" in "Body" field
+  And I click "Save"
+  Then I should see "Message saved"
+  And the post should be saved in the database
+  And ...
+
+      </code>
+      </pre>
+    </section>
+
+    <section> 
+      <h2>Focus On business Logic</h2>
+
+      <pre>
+      <code class='gherkin'>
+Feature: Register Sale
+
+  Given I an editor
+  When I write a new post
+  Then the post should be available in latest news list
+  And I should receive a feedback message
+
+      </code>
+      </pre>
+    </section>
     <section>
       <h2>Why Outside In BDD?</h2>
 
@@ -245,7 +282,7 @@ Feature: Addition
     <section>
       <h2>Outside In Design</h2>
 
-      <p><img src="/images/outside_design.png" alt="BDD Flow"/></p>
+      <p><img src="/images/outsidein_design.png" alt="BDD Flow"/></p>
     </section>
 
     <section>
@@ -267,7 +304,6 @@ Feature: Addition
       <a href="mailto:marcus.ahnve@valtech.se">marcus.ahnve@valtech.se</a><br/>
       <a href="mailto:marcus@ahnve.com">marcus@ahnve.com</a><br/>
       <a href="http://www.twitter.com/mahnve">@mahnve</a><br/>
-      <a href="http://marcusahnve.org/agile_architecture_presentation">Slides</a><br/>
       </p>
       <p>
       <img src="images/valtech_logo.png" alt="Valtech"/>
